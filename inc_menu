@@ -1,0 +1,30 @@
+-- {{{ Menu
+-- Create a laucher widget and a main menu
+myawesomemenu = {
+  { "manual", terminal .. " -e man awesome" },
+  { "edit config", editor_cmd .. " " .. awful.util.getdir("config") .. "/rc.lua" },
+  { "restart", awesome.restart },
+  { "quit", awesome.quit }
+}
+
+myfavorites = {
+  { "Firefox", "firefox" },
+  { "Chrome", "chromium-bin --disable-plugins" },
+  { "Amarok 4", "amarok" },
+  { "Amarok 3.5", "/usr/kde/3.5/bin/amarok" },
+  { "MythTV", "mythfrontend" },
+  { "Pidgin", "pidgin" },
+  { "Konqueror", "konqueror --profile filemanagement" },
+  { "Terminal", terminal }
+}
+
+mymainmenu = awful.menu({ items = { 
+  { "Favoriten", myfavorites, beautiful.awesome_icon },
+  { "awesome", myawesomemenu, beautiful.awesome_icon }
+}
+})
+
+mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
+
+menu = mymainmenu })
+-- }}}
