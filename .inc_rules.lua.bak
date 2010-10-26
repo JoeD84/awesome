@@ -23,14 +23,13 @@ my_rules = {
     all = 	{ 
 	  rule = 		{ },
 	  properties = 	{ }, 
-	  --callback = 	awful.client.setslave 
 	},
     aside = { 
 	  rule = 		{ class = "Konqueror", name = "Kopiervorgang" }, 	
 	  properties = 	{ floating = false } 
 	},
     main = 	{ 
-	  rule = 		{ class = "Konqueror", "Pidgin", "Skype"},
+	  rule = 		{ class = "Konqueror", role = "MainWindow*" },
 	  properties = 	{ floating = false } 
 	},
 }
@@ -68,10 +67,11 @@ function my_layout(my_client, args)
     if not awful.rules.match(my_client, my_rules.all.rule) then
         return
     end
+
+	
     local aside = 0
     local main = 0
     local my_tag_obj = tags[1][7]
-
     for k, c in pairs(client.get(1)) do
         if not c.minimized then
             for k2, t in pairs(c:tags()) do
@@ -92,6 +92,9 @@ function my_layout(my_client, args)
 	naughty.notify{text="NMaster: " .. main .. "NCol: " .. aside}
     awful.tag.setncol(aside, tags[1][7])
     awful.tag.setnmaster(main, tags[1][7])
+
+	
+	
 end
 
 awful.rules.rules = {
@@ -105,7 +108,6 @@ awful.rules.rules = {
                      buttons = clientbuttons } 
     },
     -- My Definitions --
-    { rule = { name = ".*VLC.*" },      						properties = { floating = true, above = true } },
     { rule = { class = "Plasma-desktop" },      				properties = { floating = true } },
 	{ rule = { class = "Plasma" },      						properties = { floating = true } },
 	{ rule = { class = "Wine" },      							properties = { floating = true } },

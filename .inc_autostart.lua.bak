@@ -1,13 +1,11 @@
 autostart_pid="/home/awesome.pid"
 
 function autostart()
-  os.execute("touch " .. autostart_pid)
-  awful.util.spawn(terminal_joe)
-  awful.util.spawn(terminal_root)
-  awful.util.spawn(terminal_miranda)
+  os.execute("touch" .. autostart_pid)
+  awful.util.spawn(terminal)
   os.execute("shark_online&")
   os.execute("pidgin&")
-  os.execute("skype&")
+  os.execute("skype")
   naughty.notify{text="Autostart complete!\n" .. os.date("%d.%m.%Y %T\n\n"), timeout = 0}
 end
 

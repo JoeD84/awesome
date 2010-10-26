@@ -23,14 +23,13 @@ my_rules = {
     all = 	{ 
 	  rule = 		{ },
 	  properties = 	{ }, 
-	  --callback = 	awful.client.setslave 
 	},
     aside = { 
 	  rule = 		{ class = "Konqueror", name = "Kopiervorgang" }, 	
 	  properties = 	{ floating = false } 
 	},
     main = 	{ 
-	  rule = 		{ class = "Konqueror", "Pidgin", "Skype"},
+	  rule = 		{ class = "Konqueror", role = "MainWindow*" },
 	  properties = 	{ floating = false } 
 	},
 }
@@ -90,7 +89,7 @@ function my_layout(my_client, args)
             end
         end
     end
-	naughty.notify{text="NMaster: " .. main .. "NCol: " .. aside}
+	naughty.notify{text="Main: " .. main .. "\nAside: " .. aside}
     awful.tag.setncol(aside, tags[1][7])
     awful.tag.setnmaster(main, tags[1][7])
 
@@ -109,7 +108,6 @@ awful.rules.rules = {
                      buttons = clientbuttons } 
     },
     -- My Definitions --
-    { rule = { name = ".*VLC.*" },      						properties = { floating = true, above = true } },
     { rule = { class = "Plasma-desktop" },      				properties = { floating = true } },
 	{ rule = { class = "Plasma" },      						properties = { floating = true } },
 	{ rule = { class = "Wine" },      							properties = { floating = true } },
