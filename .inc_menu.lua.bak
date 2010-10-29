@@ -42,7 +42,7 @@ chrome_flauntr =	chrome .. " -app=http://www.flauntr.com/flauntr/assets/app.jsp"
 chrome_friv =		chrome .. " -app=http://www.friv.com"
 
 function shutdown()
-  --awesome.quit
+  quit
   os.execute("sudo halt&")
 --os.execute("skype&")
 end

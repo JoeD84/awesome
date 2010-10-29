@@ -6,34 +6,12 @@ function gimp_init(gimp_client, args)
     gimp_client:add_signal("tagged", gimp_layout)
     gimp_layout(gimp_client, args)
 end
-function my_init(my_client, args)
-    my_client:add_signal("property::minimized", my_layout)
-    my_client:add_signal("tagged", my_layout)
-    my_layout(my_client, args)
-end
-
--- Die Gimp-Regeln.
 gimp_rules = {
     all = 		{ rule = { class = "Gimp" }, 								properties = { tag = tags[1][8], size_hints_honor = false, }, },--callback = gimp_init },
     toolbox = 	{ rule = { class = "Gimp", role = "gimp-toolbox" }, 		properties = { floating = false }, callback = awful.client.setslave },
     dock = 		{ rule = { class = "Gimp", role = "gimp-dock" }, 			properties = { floating = false }, callback = awful.client.setslave },
     image = 	{ rule = { class = "Gimp", role = "gimp-image-window" }, 	properties = { floating = false } },
 }
-my_rules = {
-    all = 	{ 
-	  rule = 		{ },
-	  properties = 	{ }, 
-	},
-    aside = { 
-	  rule = 		{ class = "Konqueror", name = "Kopiervorgang" }, 	
-	  properties = 	{ floating = false } 
-	},
-    main = 	{ 
-	  rule = 		{ class = "Konqueror", role = "MainWindow*" },
-	  properties = 	{ floating = false } 
-	},
-}
-	
 function gimp_layout(gimp_client, args)
     if not awful.rules.match(gimp_client, gimp_rules.all.rule) then
         return
@@ -63,12 +41,37 @@ function gimp_layout(gimp_client, args)
     awful.tag.setnmaster(main, tags[gimp_screen][gimp_tag])
 end
 
+
+function my_init(my_client, args)
+    my_client:add_signal("property::minimized", my_layout)
+    my_client:add_signal("tagged", my_layout)
+    my_layout(my_client, args)
+end
+my_rules = {
+    all = 	{ 
+	  rule = 		{ },
+	  properties = 	{ },
+	  callback = awful.client.setslave
+	},
+    aside_any = { 
+	  rule = {},
+	  --rule = 		{ class = "Konqueror, XTerm", name = "Fortschrittsdialog, Kopiervorgang, Verschiebevorgang, Verschiebevorgang (6 % von 402.2 MiB )" }, 	
+	  properties = 	{ }, --floating = false },
+	  callback = awful.client.setslave
+	},
+    main = 	{ 
+	  rule = 		{ class = "Konqueror", role = "MainWindow#1" },
+	  properties = {}
+	},
+	any = {
+	  rule = { class = { "Konqueror" } }, 
+	  properties = { }
+	}
+}
 function my_layout(my_client, args)
     if not awful.rules.match(my_client, my_rules.all.rule) then
         return
     end
-
-	
     local aside = 0
     local main = 0
     local my_tag_obj = tags[1][7]
@@ -76,25 +79,29 @@ function my_layout(my_client, args)
         if not c.minimized then
             for k2, t in pairs(c:tags()) do
                 if t == my_tag_obj then
-                    if awful.rules.match(c, my_rules.all.rule) then
-                        aside = aside + 1
-                    end
-					if awful.rules.match(c, my_rules.aside.rule) then
-                        aside = aside + 1
-                    end
-                    if awful.rules.match(c, my_rules.main.rule) then
-                        main = main + 1
-                    end
+					if not awful.rules.match(c, my_rules.main.rule) then
+					  --if awful.rules.match(c, my_rules.all.rule) then
+						  aside = aside + 1
+						  --naughty.notify{text="Alles andere X"}
+					  --end
+					end
+					if awful.rules.match_any(c, my_rules.aside_any.rule) then
+					  aside = aside + 1
+					  naughty.notify{text="Aside + 1"}
+					end
+					--if not awful.rules.match_any(c, my_rules.aside_any.rule) then  
+					  if awful.rules.match(c, my_rules.main.rule) then
+						  main = main + 1
+					  end
+					--end
                 end
             end
         end
     end
-	naughty.notify{text="Main: " .. main .. "\nAside: " .. aside}
+	--naughty.notify{text="Tag: " .. 7 .. "\nMain: " .. main .. "\nAside: " .. aside.."\nwmfact: "..(1-aside/10.0), timeout=10}
     awful.tag.setncol(aside, tags[1][7])
     awful.tag.setnmaster(main, tags[1][7])
-
-	
-	
+	awful.tag.setmwfact(1-(aside/10), tags[1][7])
 end
 
 awful.rules.rules = {
@@ -104,18 +111,22 @@ awful.rules.rules = {
                      border_color = beautiful.border_normal,
                      focus   = true,
 					 --floating = false,
+					 placement = centered,
                      keys    = clientkeys,
-                     buttons = clientbuttons } 
+                     buttons = clientbuttons },
+	  callback = my_layout
     },
     -- My Definitions --
     { rule = { class = "Plasma-desktop" },      				properties = { floating = true } },
 	{ rule = { class = "Plasma" },      						properties = { floating = true } },
 	{ rule = { class = "Wine" },      							properties = { floating = true } },
+	{ rule = { class = "Xmessage" },   							properties = { floating = true } },
 
     -- Screen 1 --
     { rule = { class = "Chrome" }, 								properties = { tag = tags[1][1] } },
     { rule = { class = "Firefox" },      						properties = { tag = tags[1][1], switchtotag = true } },
-    
+
+	{ rule = { class = "XTerm" }, 									properties = { }, callback = awful.client.setslave },
 	{ rule = { class = "XTerm", name = "xterm - root@michelle" }, 	properties = { tag = tags[1][2] } },
     { rule = { class = "XTerm", name = "xterm - joe@michelle" }, 	properties = { tag = tags[1][3] } },
     { rule = { class = "XTerm", name = "xterm - root@miranda" }, 	properties = { tag = tags[1][4] } },
@@ -125,11 +136,13 @@ awful.rules.rules = {
 	{ rule = { class = "Pidgin", role = "smiley_dialog" }, 		properties = { tag = tags[1][5], placement = centered } },
 	{ rule = { class = "Pidgin", name = "Neuer Alarm" }, 		properties = { tag = tags[1][5], floating = false }, callback = awful.client.setslave },
 	{ rule = { class = "Pidgin", role = "conversation" }, 		properties = { tag = tags[1][5], floating = false }, callback = awful.client.setslave },
-    
+	{ rule = { class = "skype" }, 								properties = { tag = tags[1][5], floating = false } },
+	
 	{ rule = { class = "Kate" },      							properties = { tag = tags[1][6] } },
     { rule = { class = "Acroread" }, 							properties = { tag = tags[1][6] } },
     
-	{ rule = { class = "Konqueror" }, 							properties = { tag = tags[1][7] }, callback = my_init },
+	{ rule = { class = "Konqueror" }, 							properties = { tag = tags[1][7] } },
+	{ rule = { class = "Konqueror", name = "Fortschrittsdialog" },	properties = { tag = tags[1][7] }, callback = awful.client.setslave },
 	{ rule = { class = "Konqueror", name = "Kopiervorgang" },	properties = { tag = tags[1][7] }, callback = awful.client.setslave },
 
     { rule = { class = "Gimp" },      							properties = { tag = tags[1][8], floating = false }, callback = gimp_init },
@@ -141,15 +154,16 @@ awful.rules.rules = {
     { rule = { class = "Vncviewer", name = "TightVNC: joe's X desktop (miranda:0)"}, properties = { tag = tags[1][9] } },
 
     -- Screen 2 --
-    { rule = { class = "Mythfrontend" },				properties = { tag = tags[2][1], switchtotag = true, fullscreen = false, floating = false } },
-    { rule = { class = "MPlayer" },      				properties = { tag = tags[2][2], floating = true } },
-    { rule = { class = "Smplayer" },      				properties = { tag = tags[2][2] } },
-    { rule = { class = "Amarok" },      				properties = { tag = tags[2][3], floating = true, ontop = true } },
+    { rule = { class = "Mythfrontend" },				properties = { tag = tags[2][1], switchtotag = true, fullscreen = false, floating = false, size_hints_honor = false } },
+    { rule = { class = "MPlayer" },      				properties = { tag = tags[2][2], switchtotag = true, floating = true } },
+    { rule = { class = "Smplayer" },      				properties = { tag = tags[2][2], switchtotag = true } },
+    { rule = { class = "Amarok" },      				properties = { tag = tags[2][3], switchtotag = true } },
     { rule = { class = "Gwenview" },      				properties = { tag = tags[2][5] } },
     { rule = { class = "Kuickview" },      				properties = { tag = tags[2][5] } },
 
 }
 
+comment={
 --{{{
 --{ rule = { class = "xterm" }, properties = { maximized_vertical = true, maximized_horizontal = true } }
 --If you want to set mplayer floating at startup, you can add: 
@@ -165,3 +179,4 @@ awful.rules.rules = {
 --	{ rule = { name = "Playlist" },      				properties = { floating = true, above = true } },
 --	{ rule = { class = "Gedit" },      					properties = { floating = true, width = "90%", y = "50", placement = "centerx" } },
 	--}}}
+}

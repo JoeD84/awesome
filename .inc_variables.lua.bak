@@ -18,7 +18,7 @@ layouts = {
 }
 
 terminal = "xterm"
-terminal_test = "xterm -title 'test'"
+terminal_test = "xterm -title 'test' "
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
