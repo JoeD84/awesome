@@ -25,12 +25,13 @@ awful.rules.rules = {
     { rule = { class = "XTerm", name = "xterm - joe@michelle" }, 	properties = { tag = tags[1][3] } },
     { rule = { class = "XTerm", name = "xterm - root@miranda" }, 	properties = { tag = tags[1][4] } },
     
-	{ rule = { class = "Pidgin" },      						properties = { tag = tags[1][5], floating = true } },
+	{ rule = { class = "Pidgin" },      						properties = { tag = tags[1][5], floating = true }, callback = im_init },
 	{ rule = { class = "Pidgin", role = "buddy_list" }, 		properties = { tag = tags[1][5], floating = false } },
 	{ rule = { class = "Pidgin", role = "smiley_dialog" }, 		properties = { tag = tags[1][5], placement = centered } },
 	{ rule = { class = "Pidgin", name = "Neuer Alarm" }, 		properties = { tag = tags[1][5], floating = false }, callback = awful.client.setslave },
 	{ rule = { class = "Pidgin", role = "conversation" }, 		properties = { tag = tags[1][5], floating = false }, callback = awful.client.setslave },
-	{ rule = { class = "skype" }, 								properties = { tag = tags[1][5], floating = false } },
+	{ rule = { class = "Skype" }, 								properties = { tag = tags[1][5], floating = false } },
+	{ rule = { class = "Skype",  name="Skype™ Chat" },			properties = { tag = tags[1][5], floating = false }, callback = awful.client.setslave },
 	
 	{ rule = { class = "Kate" },      							properties = { tag = tags[1][6] } },
     { rule = { class = "Acroread" }, 							properties = { tag = tags[1][6] } },

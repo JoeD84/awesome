@@ -5,10 +5,10 @@ tags.settings = {
     { name = "2:root", 		layout = awful.layout.suit.tile.left,		wmfact=0.6 },
     { name = "3:joe", 		layout = awful.layout.suit.tile.left,		wmfact=0.6 },
     { name = "4:miranda", 	layout = awful.layout.suit.tile.left,		wmfact=0.6 },
-    { name = "5:IM", 		layout = awful.layout.suit.tile,			wmfact=0.3 },
+    { name = "5:IM", 		layout = awful.layout.suit.tile,			wmfact=0.7 },
     { name = "6:Text", 		layout = awful.layout.suit.magnifier,		wmfact=0.5 },
     { name = "7:File", 		layout = awful.layout.suit.tile.bottom,		wmfact=0.84 },
-    { name = "8:Multimedia", layout= awful.layout.suit.tile.right,		wmfact=0.7 },
+    { name = "8:Multimedia", layout= awful.layout.suit.tile.right,		wmfact=0.3 },
     { name = "9:Download", 	layout = awful.layout.suit.max,				wmfact=0.5 },
 }
 

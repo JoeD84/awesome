@@ -1,6 +1,3 @@
-
-
-
 awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { },
@@ -28,12 +25,13 @@ awful.rules.rules = {
     { rule = { class = "XTerm", name = "xterm - joe@michelle" }, 	properties = { tag = tags[1][3] } },
     { rule = { class = "XTerm", name = "xterm - root@miranda" }, 	properties = { tag = tags[1][4] } },
     
-	{ rule = { class = "Pidgin" },      						properties = { tag = tags[1][5], floating = true } },
+	{ rule = { class = "Pidgin" },      						properties = { tag = tags[1][5], floating = true }, callback = im_init },
 	{ rule = { class = "Pidgin", role = "buddy_list" }, 		properties = { tag = tags[1][5], floating = false } },
 	{ rule = { class = "Pidgin", role = "smiley_dialog" }, 		properties = { tag = tags[1][5], placement = centered } },
 	{ rule = { class = "Pidgin", name = "Neuer Alarm" }, 		properties = { tag = tags[1][5], floating = false }, callback = awful.client.setslave },
 	{ rule = { class = "Pidgin", role = "conversation" }, 		properties = { tag = tags[1][5], floating = false }, callback = awful.client.setslave },
-	{ rule = { class = "skype" }, 								properties = { tag = tags[1][5], floating = false } },
+	{ rule = { class = "Skype" }, 								properties = { tag = tags[1][5], floating = false } },
+	{ rule = { class = "Skype",  name="Skype™ Chat" },			properties = { tag = tags[1][5], floating = false } },
 	
 	{ rule = { class = "Kate" },      							properties = { tag = tags[1][6] } },
     { rule = { class = "Acroread" }, 							properties = { tag = tags[1][6] } },
@@ -58,22 +56,4 @@ awful.rules.rules = {
     { rule = { class = "Gwenview" },      				properties = { tag = tags[2][5] } },
     { rule = { class = "Kuickview" },      				properties = { tag = tags[2][5] } },
 
-}
-
-comment={
---{{{
---{ rule = { class = "xterm" }, properties = { maximized_vertical = true, maximized_horizontal = true } }
---If you want to set mplayer floating at startup, you can add: 
---{ rule = { name = "MPlayer" }, properties = { floating = true } }
---If you want to put Firefox on a specific tag at startup, you can add: 
---{ rule = { instance = "firefox" } properties = { tag = mytagobject } }
---If you want to put Emacs on a specific tag at startup, and immediately switch to that tag you can add: 
---{ rule = { class = "Emacs" } properties = { tag = mytagobject, switchtotag = true } }
---If you want to apply a custom callback to execute when a rule matched, you can add: 
---{ rule = { class = "dosbox" }, callback = awful.placement.centered }
---Note that all "rule" entries need to match. If any of the entry does not match, the rule won't be applied.
---	{ rule = { class = "Gedit" },       				properties = { floating = true, width = 600, height = 600, x = 420, y = 420 } },
---	{ rule = { name = "Playlist" },      				properties = { floating = true, above = true } },
---	{ rule = { class = "Gedit" },      					properties = { floating = true, width = "90%", y = "50", placement = "centerx" } },
-	--}}}
 }
