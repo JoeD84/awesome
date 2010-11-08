@@ -40,9 +40,11 @@ chrome_reader_play =chrome .. " -app='https://www.google.com/reader/play/#item/u
 chrome_docs = 		chrome .. " -app=https://docs.google.com/"
 chrome_flauntr =	chrome .. " -app=http://www.flauntr.com/flauntr/assets/app.jsp"
 chrome_friv =		chrome .. " -app=http://www.friv.com"
+chrome_mythweb =	chrome .. " -app=https://joed.homeip.net/mythweb"
+chrome_ebuddy =		chrome .. " -app=http://web.ebuddy.com/"
 
 function shutdown()
-  quit
+  --awesome.quit
   os.execute("sudo halt&")
 --os.execute("skype&")
 end
@@ -51,9 +53,10 @@ mywebapps = {
   { "GMail", 		chrome_mail, 		i_path_usr.."Google/gmail.png" },
   { "GCalendar", 	chrome_calendar, 	i_path_usr.."Google/gcalendar.png" },
   { "GReader", 		chrome_reader, 		i_path_usr.."Google/greader.png" },
-  { "GReader - Play(Tumblr)", chrome_reader_play, i_path_usr.."Google/greader.png" },
   { "GDocs", 		chrome_docs, 		i_path_usr.."Google/gdocs.png" },
+  { "eBuddy", 		chrome_ebuddy, 		i_chrome },
   { "flauntR", 		chrome_flauntr, 	i_chrome },
+  { "MythWEB", 		chrome_mythweb,		i_myth },
 }
 
 myunterhaltung = {
@@ -65,6 +68,7 @@ myinternet = {
   { "Chrome", 		chrome, 	i_chrome },
   { "Webapps",		mywebapps, 	i_chrome },
   { "JDownloader", 	"jdownloader", 	i_jdown },
+  { "Deluge", 		"deluge -u gtk", 	i_jdown },
   { "Firefox", 		"firefox", 	i_firefox },
   { "Pidgin", 		"pidgin",	i_pidgin },
 }
@@ -72,6 +76,7 @@ myinternet = {
 mymultimedia = {
   { "MythTV", 		"mythfrontend",	i_myth },
   { "Amarok", 		"amarok",	i_amarok  },
+  { "Gimp", 		"gimp", 	i_picasa },
   { "Picasa", 		"picasa", 	i_picasa },
 }
 

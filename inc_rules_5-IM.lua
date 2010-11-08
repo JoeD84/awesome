@@ -32,15 +32,12 @@ function im_layout(im_client, args)
             for k2, t in pairs(c:tags()) do
                 if t == my_tag_obj then
 					if not awful.rules.match_any(c, im_rules.main_any.rule_any) then
-					  --aside = aside + 1
 					  aside = 1
 					  naughty.notify{text="Test"}
 					  if awful.rules.match_any(c, im_rules.aside_any.rule_any) then
-						--aside = aside + 1
-						naughty.notify{text="Aside + 1"}
+						aside = 1
 					  end
-					end
-					if awful.rules.match_any(c, im_rules.main_any.rule_any) then
+					else
 					  main = main + 1
 					end
                 end
@@ -48,11 +45,11 @@ function im_layout(im_client, args)
         end
     end
 	if aside==0 then
-	  naughty.notify{text="Blub - Tag: " .. 5 .. "\nMain: " .. main .. "\nAside: " .. aside, timeout=10}
+	  --naughty.notify{text="Blub - Tag: " .. 5 .. "\nMain: " .. main .. "\nAside: " .. aside, timeout=10}
 	  awful.tag.setncol(0, tags[1][5])
 	  awful.tag.setnmaster(2, tags[1][5])  
 	else	
-	  naughty.notify{text="Tag: " .. 5 .. "\nMain: " .. main .. "\nAside: " .. aside, timeout=10}
+	  --naughty.notify{text="Tag: " .. 5 .. "\nMain: " .. main .. "\nAside: " .. aside, timeout=10}
 	  awful.tag.setncol(aside, tags[1][5])
 	  awful.tag.setnmaster(main, tags[1][5])
 	  --awful.tag.setmwfact(1-(aside/10), tags[1][7])

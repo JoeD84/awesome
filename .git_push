@@ -1,0 +1,5 @@
+#!/bin/bash
+MESSAGE="Daily Git push"
+git add .
+git commit -m "$MESSAGE"
+git push

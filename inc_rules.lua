@@ -45,8 +45,9 @@ awful.rules.rules = {
     { rule = { class = "Gimp", role = "gimp-dock" },    		properties = { floating = false }, callback = awful.client.setslave },
     { rule = { class = "Gimp", role = "gimp-imaage-window" }, 	properties = { floating = false }  },
 
-    { rule = { class = "Firefox",   name = "Downloads" }, properties = { tag = tags[1][9], floating = true } },
-    { rule = { class = "Vncviewer", name = "TightVNC: joe's X desktop (miranda:0)"}, properties = { tag = tags[1][9] } },
+    { rule = { class = "Firefox",   name = "Downloads" }, 		properties = { tag = tags[1][9], floating = true } },
+	{ rule = { class = "Deluge" }, 								properties = { tag = tags[1][9] } },
+    { rule = { class = "Vncviewer", name = "TightVNC: joe's X desktop (miranda:0)"}, properties = { tag = tags[1][9],  } },
 
     -- Screen 2 --
     { rule = { class = "Mythfrontend" },				properties = { tag = tags[2][1], switchtotag = true, fullscreen = false, floating = false, size_hints_honor = false } },
