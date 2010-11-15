@@ -1,6 +1,6 @@
 config = {}
 config.logs = {
-  awesome   = { file = "/home/joe/.awesome-errors" },
+  --awesome   = { file = "/home/joe/.awesome-errors" },
   apache    = { file = "/var/log/apache_miranda_combined_notme" },
 }
 config.logs_quiet = nil

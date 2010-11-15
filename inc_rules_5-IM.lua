@@ -33,7 +33,7 @@ function im_layout(im_client, args)
                 if t == my_tag_obj then
 					if not awful.rules.match_any(c, im_rules.main_any.rule_any) then
 					  aside = 1
-					  naughty.notify{text="Test"}
+					  --naughty.notify{text="Test"}
 					  if awful.rules.match_any(c, im_rules.aside_any.rule_any) then
 						aside = 1
 					  end

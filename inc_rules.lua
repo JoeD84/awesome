@@ -15,6 +15,7 @@ awful.rules.rules = {
 	{ rule = { class = "Plasma" },      						properties = { floating = true } },
 	{ rule = { class = "Wine" },      							properties = { floating = true } },
 	{ rule = { class = "Xmessage" },   							properties = { floating = true } },
+	
 
     -- Screen 1 --
     { rule = { class = "Chrome" }, 								properties = { tag = tags[1][1] } },

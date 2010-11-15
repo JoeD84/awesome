@@ -37,8 +37,7 @@ function im_layout(im_client, args)
 					  if awful.rules.match_any(c, im_rules.aside_any.rule_any) then
 						aside = 1
 					  end
-					end
-					if awful.rules.match_any(c, im_rules.main_any.rule_any) then
+					else
 					  main = main + 1
 					end
                 end

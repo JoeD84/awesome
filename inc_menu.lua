@@ -29,6 +29,7 @@ i_myth 		= i_path_usr .. "Icons/mythtv-logo.png"
 terminal_joe = 		"xterm -title 'xterm - joe@michelle'  -e 'screen -D -RR'"
 terminal_root = 	"xterm -title 'xterm - root@michelle' -e 'suscreen'"
 terminal_miranda = 	"xterm -title 'xterm - root@miranda'  -e 'ssh -XY root@miranda'"
+terminal_quota = 	"xterm -title 'xterm - quota@michelle'  -e 'ssh -XY quota@michelle'"
 chrome_bin =		"chromium"
 chrome_opts =		" --enable-apps --enable-flags "
 chrome =			chrome_bin .. chrome_opts
@@ -42,12 +43,6 @@ chrome_flauntr =	chrome .. " -app=http://www.flauntr.com/flauntr/assets/app.jsp"
 chrome_friv =		chrome .. " -app=http://www.friv.com"
 chrome_mythweb =	chrome .. " -app=https://joed.homeip.net/mythweb"
 chrome_ebuddy =		chrome .. " -app=http://web.ebuddy.com/"
-
-function shutdown()
-  --awesome.quit
-  os.execute("sudo halt&")
---os.execute("skype&")
-end
 
 mywebapps = {
   { "GMail", 		chrome_mail, 		i_path_usr.."Google/gmail.png" },
@@ -87,7 +82,7 @@ myawesomemenu = {
   { "edit config", 	"kate -s awesome", i_kate },
   { "Restart", 		awesome.restart, beautiful.awesome_icon },
   { "Quit", 		awesome.quit, beautiful.awesome_icon },
-  { "Shutdown", 	shutdown(), beautiful.awesome_icon }
+  { "Shutdown", 	"awesome_shutdown", beautiful.awesome_icon }
 }
 
 myfavorites = {
@@ -109,6 +104,7 @@ mymainmenu = awful.menu({ items = {
 q_mainmenu = awful.menu({ items = {
   { "Chrome(XXX)", 	chrome_xxx,	i_chrome },
   { "Pidgin(Quota)",	"sudo -A -u quota pidgin", i_pidgin},
+  { "Terminal(Quota)",	terminal_quota, i_pidgin},
 
 }
 })

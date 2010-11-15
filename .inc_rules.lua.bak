@@ -15,6 +15,8 @@ awful.rules.rules = {
 	{ rule = { class = "Plasma" },      						properties = { floating = true } },
 	{ rule = { class = "Wine" },      							properties = { floating = true } },
 	{ rule = { class = "Xmessage" },   							properties = { floating = true } },
+	{ rule = { class = "SshAskpass" },   						properties = { floating = true } },
+	
 
     -- Screen 1 --
     { rule = { class = "Chrome" }, 								properties = { tag = tags[1][1] } },
@@ -47,7 +49,7 @@ awful.rules.rules = {
 
     { rule = { class = "Firefox",   name = "Downloads" }, 		properties = { tag = tags[1][9], floating = true } },
 	{ rule = { class = "Deluge" }, 								properties = { tag = tags[1][9] } },
-    { rule = { class = "Vncviewer", name = "TightVNC: joe's X desktop (miranda:0)"}, properties = { tag = tags[1][9], size_hints_honor = false } },
+    { rule = { class = "Vncviewer", name = "TightVNC: joe's X desktop (miranda:0)"}, properties = { tag = tags[1][9],  } },
 
     -- Screen 2 --
     { rule = { class = "Mythfrontend" },				properties = { tag = tags[2][1], switchtotag = true, fullscreen = false, floating = false, size_hints_honor = false } },

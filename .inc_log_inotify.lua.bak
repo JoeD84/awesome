@@ -45,7 +45,7 @@ function log_changed(logname)
       naughty.notify{
         title = '<span color="white">' .. logname .. "</span>: " .. log.file,
         text = awful.util.escape(diff),
-        hover_timeout = 0.2, timeout = 0,
+        hover_timeout = 0.2, timeout = 20,
       }
     end
 
