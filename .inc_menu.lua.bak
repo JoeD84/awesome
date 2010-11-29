@@ -70,7 +70,7 @@ myinternet = {
 
 mymultimedia = {
   { "MythTV", 		"mythfrontend",	i_myth },
-  { "Amarok", 		"amarok",	i_amarok  },
+  { "Amarok", 		"/usr/kde/3.5/bin/amarok",	i_amarok  },
   { "Gimp", 		"gimp", 	i_picasa },
   { "Picasa", 		"picasa", 	i_picasa },
 }
@@ -104,6 +104,7 @@ mymainmenu = awful.menu({ items = {
 q_mainmenu = awful.menu({ items = {
   { "Chrome(XXX)", 	chrome_xxx,	i_chrome },
   { "Pidgin(Quota)",	"sudo -A -u quota pidgin", i_pidgin},
+  { "Terminal(Quota)",	terminal_quota, i_pidgin},
 
 }
 })

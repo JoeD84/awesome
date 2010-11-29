@@ -12,7 +12,7 @@ my_rules = {
 	},
     aside_any = { 
 	  rule = {},
-	  --rule = 		{ class = "Konqueror, XTerm", name = "Fortschrittsdialog, Kopiervorgang, Verschiebevorgang, Verschiebevorgang (6 % von 402.2 MiB )" },
+	  --rule = 		{ class = "Konqueror, XTerm", name = "Fortschrittsdialog, Kopiervorgang, Verschiebevorgang, Verschiebevorgang (6 % von 402.2 MiB )" }, 	
 	  properties = 	{ }, --floating = false },
 	  callback = awful.client.setslave
 	},

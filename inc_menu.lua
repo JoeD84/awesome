@@ -70,7 +70,7 @@ myinternet = {
 
 mymultimedia = {
   { "MythTV", 		"mythfrontend",	i_myth },
-  { "Amarok", 		"amarok",	i_amarok  },
+  { "Amarok", 		"/usr/kde/3.5/bin/amarok",	i_amarok  },
   { "Gimp", 		"gimp", 	i_picasa },
   { "Picasa", 		"picasa", 	i_picasa },
 }
@@ -88,7 +88,7 @@ myawesomemenu = {
 myfavorites = {
   { "Chrome", 		chrome, 	i_chrome },
   { "MythTV", 		"mythfrontend", i_myth },
-  { "Amarok", 		"amarok", 	i_amarok },
+  { "Amarok", 		"/usr/kde/3.5/bin/amarok", 	i_amarok },
   { "Konqueror", 	"konqueror --profile filemanagement", i_konq },
 }
 

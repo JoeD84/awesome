@@ -9,10 +9,11 @@ function autostart()
   awful.util.spawn(terminal_root)
   awful.util.spawn(terminal_miranda)
   os.execute("shark_online&")
+  os.execute("imwheel -k&")
   os.execute("pidgin&")
   os.execute("skype&")
   os.execute("blueman-applet&")
-  os.execute("dropbox start")
+  os.execute("dropbox start&")
   naughty.notify{text="Autostart complete!\n" .. os.date("%d.%m.%Y %T\n\n"), timeout = 10}
 end
 
