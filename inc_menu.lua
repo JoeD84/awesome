@@ -8,7 +8,7 @@ i_path_px	= "/usr/share/pixmaps/"
 i_path_bw 	= "/usr/share/icons/black and white/" .. i_size
 i_path_usr	= "/usr/share/logos/"
 
-i_chrome	= i_path_px .. "chromium-bin.png"
+i_chrome	= i_path_px .. "chromium-browser.png"
 i_picasa	= i_path_px .. "picasa.xpm"
 i_firefox	= i_path_px .. "firefox-icon.png"
 i_amarok	= i_path_bw .. "apps/amarok.png"
@@ -24,7 +24,7 @@ i_unterh	= i_path .. "categories/applications-other.png"
 
 i_jdown		= i_path_usr .. "Icons/jd_logo_128_128.png"
 i_gentoo	= i_path_usr .. "Icons/573px-gentoo_linux_logo_mattesvg.png"
-i_myth 		= i_path_usr .. "Icons/mythtv-logo.png"
+i_myth 		= i_path_usr .. "Icons/mythtv.png"
 
 terminal_joe = 		"xterm -title 'xterm - joe@michelle'  -e 'screen -D -RR'"
 terminal_root = 	"xterm -title 'xterm - root@michelle' -e 'suscreen'"
@@ -55,22 +55,23 @@ mywebapps = {
 }
 
 myunterhaltung = {
-  { "GReader - Play(Tumblr)", chrome_reader_play, i_path_usr.."Google/greader.png" },
-  { "Friv - Flash Games", 	  chrome_friv, i_chrome },
+  { "GReader - Play(Tumblr)",           chrome_reader_play, i_path_usr.."Google/greader.png" },
+  { "Friv - Flash Games", 	            chrome_friv, i_chrome },
 }
   
 myinternet = {
-  { "Chrome", 		chrome, 	i_chrome },
-  { "Webapps",		mywebapps, 	i_chrome },
-  { "JDownloader", 	"jdownloader", 	i_jdown },
+  { "Chrome", 		chrome, 	        i_chrome },
+  { "Webapps",		mywebapps, 	        i_chrome },
+  { "JDownloader", 	"jdownloader", 	    i_jdown },
   { "Deluge", 		"deluge -u gtk", 	i_jdown },
-  { "Firefox", 		"firefox", 	i_firefox },
-  { "Pidgin", 		"pidgin",	i_pidgin },
+  { "Firefox", 		"firefox", 	        i_firefox },
+  { "Pidgin", 		"pidgin",	        i_pidgin },
 }
 
 mymultimedia = {
   { "MythTV", 		"mythfrontend",	i_myth },
   { "Amarok", 		"/usr/kde/3.5/bin/amarok",	i_amarok  },
+  { "Editra",   	"Editra",       i_kate },
   { "Gimp", 		"gimp", 	i_picasa },
   { "Picasa", 		"picasa", 	i_picasa },
 }
@@ -79,7 +80,7 @@ myawesomemenu = {
   { "Terminal(joe)", 	terminal_joe,	i_terminal },
   { "Terminal(root)", 	terminal_root,	i_terminal },
   { "Terminal(miranda)", terminal_miranda, i_terminal },
-  { "edit config", 	"kate -s awesome", i_kate },
+  { "edit config", 	"Editra", i_kate },
   { "Restart", 		awesome.restart, beautiful.awesome_icon },
   { "Quit", 		awesome.quit, beautiful.awesome_icon },
   { "Shutdown", 	"awesome_shutdown", beautiful.awesome_icon }
@@ -104,7 +105,7 @@ mymainmenu = awful.menu({ items = {
 q_mainmenu = awful.menu({ items = {
   { "Chrome(XXX)", 	chrome_xxx,	i_chrome },
   { "Pidgin(Quota)",	"sudo -A -u quota pidgin", i_pidgin},
-  { "Terminal(Quota)",	terminal_quota, i_pidgin},
+  { "Terminal(Quota)",	terminal_quota, i_terminal},
 
 }
 })

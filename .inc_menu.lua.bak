@@ -41,7 +41,7 @@ chrome_reader_play =chrome .. " -app='https://www.google.com/reader/play/#item/u
 chrome_docs = 		chrome .. " -app=https://docs.google.com/"
 chrome_flauntr =	chrome .. " -app=http://www.flauntr.com/flauntr/assets/app.jsp"
 chrome_friv =		chrome .. " -app=http://www.friv.com"
-chrome_mythweb =	chrome .. " -app=https://joed.homeip.net/mythweb"
+chrome_mythweb =	chrome .. " -app=https://joed.homeip.net/mythweb.html"
 chrome_ebuddy =		chrome .. " -app=http://web.ebuddy.com/"
 
 mywebapps = {
@@ -88,7 +88,7 @@ myawesomemenu = {
 myfavorites = {
   { "Chrome", 		chrome, 	i_chrome },
   { "MythTV", 		"mythfrontend", i_myth },
-  { "Amarok", 		"amarok", 	i_amarok },
+  { "Amarok", 		"/usr/kde/3.5/bin/amarok", 	i_amarok },
   { "Konqueror", 	"konqueror --profile filemanagement", i_konq },
 }
 

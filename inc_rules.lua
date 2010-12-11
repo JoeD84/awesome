@@ -35,6 +35,8 @@ awful.rules.rules = {
 	{ rule = { class = "Skype",  name="Skype™ Chat" },			properties = { tag = tags[1][5], floating = false }, callback = awful.client.setslave },
 	
 	{ rule = { class = "Kate" },      							properties = { tag = tags[1][6] } },
+	{ rule = { class = "Python2.7" },  							properties = { tag = tags[1][6] } },
+    { rule = { name  = "*Editra v0.5.99" },      				properties = { tag = tags[1][6] } },
     { rule = { class = "Acroread" }, 							properties = { tag = tags[1][6] } },
     
 	{ rule = { class = "Konqueror" }, 							properties = { tag = tags[1][7] } },
