@@ -1,19 +1,16 @@
-My super f'd up awesome config
+My awesome config
 ==============================
 
 Mainly as a backup.
-	
 But if you like also for your inspiration.
 
 If you have questions feel free to ask. I will try to answer them.
-
 Joe84D@gmail.com
 
+# rc.lua
+The Failsafe load, try to load rc_joe.lua, else load the default config.
 
-
-* rc.lua                          
-  * The Failsafe load, try to load rc_joe.lua, else load the default config.
-* rc_joe.lua
+* rc_joe.lua:
   * require("awful")				-- Standard awesome library
   * require("awful.autofocus")	-- awesome default library
   * require("awful.rules")		-- awesome default library
