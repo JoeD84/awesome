@@ -1,10 +1,8 @@
-My awesome config
-==============================
+# My [awesome](http://awesome.naquadah.org/) config #
 
-Mainly as a backup.
-But if you like also for your inspiration.
+Mainly as a backup, But if you like also for your inspiration.
 
-If you have questions feel free to ask. I will try to answer them.
+If you have questions feel free to ask, I will try to answer them.<br />
 <Joe84D@gmail.com>
 
 * rc.lua:
