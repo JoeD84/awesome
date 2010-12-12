@@ -5,9 +5,9 @@ Mainly as a backup.
 But if you like also for your inspiration.
 
 If you have questions feel free to ask. I will try to answer them.
-Joe84D@gmail.com
+<Joe84D@gmail.com>
 
-# rc.lua
+* rc.lua:
 The Failsafe load, try to load rc_joe.lua, else load the default config.
 
 * rc_joe.lua:
