@@ -43,6 +43,8 @@ chrome_flauntr =	chrome .. " -app=http://www.flauntr.com/flauntr/assets/app.jsp"
 chrome_friv =		chrome .. " -app=http://www.friv.com"
 chrome_mythweb =	chrome .. " -app=https://joed.homeip.net/mythweb"
 chrome_ebuddy =		chrome .. " -app=http://web.ebuddy.com/"
+kmymoney =          "kmymoney /home/joe/_Dropbox/Dokumente/joe.kmy"
+
 
 mywebapps = {
   { "GMail", 		chrome_mail, 		i_path_usr.."Google/gmail.png" },
@@ -74,6 +76,7 @@ mymultimedia = {
   { "Editra",   	"Editra",       i_kate },
   { "Gimp", 		"gimp", 	i_picasa },
   { "Picasa", 		"picasa", 	i_picasa },
+  { "KMyMoney", 	kmymoney },
 }
 
 myawesomemenu = {
