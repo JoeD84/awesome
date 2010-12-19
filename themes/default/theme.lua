@@ -91,6 +91,38 @@ theme.layout_tiletop = theme.path .. "layouts/tiletopw.png"
 theme.layout_spiral  = theme.path .. "layouts/spiralw.png"
 theme.layout_dwindle = theme.path .. "layouts/dwindlew.png"
 
+theme.icons = {}
+theme.icons.size = "128x128/"
+theme.icons.path = "/home/joe/.kde4/share/icons/OxygenRefit2-black-version_x/" .. theme.icons.size
+
+theme.icons.favorites = theme.icons.path .. "actions/bookmark-new.png"
+
+--i_path_px	= "/usr/share/pixmaps/"
+--i_path_bw 	= "/usr/share/icons/black and white/" .. i_size
+--i_path_usr	= "/usr/share/logos/"
+
+--i_chrome	= i_path_px .. "chromium-browser.png"
+--i_picasa	= i_path_px .. "picasa.xpm"
+--i_firefox	= i_path_px .. "firefox-icon.png"
+--i_amarok	= i_path_bw .. "apps/amarok.png"
+
+--i_pidgin	= i_path .. "apps-extra/gaim.png"
+--i_konq		= i_path .. "apps-extra/gnome-home.png"
+--i_internet	= i_path .. "categories/applications-internet.png"
+--i_mainmenu	= i_path .. "categories/applications-other.png"
+--i_multimedia= i_path .. "places/folder1.png"
+--i_terminal	= i_path .. "apps/terminal.png"
+--i_kate		= i_path .. "apps/kedit.png"
+--i_unterh	= i_path .. "categories/applications-other.png"
+--i_volume   	= i_path .. "status/audio-volume-medium.png"
+--i_deluge   	= i_path .. "apps-extra/deluge.png"
+--i_gimp   	= i_path .. "apps-extra/gimp.png"
+--i_kmymoney 	= i_path .. "apps-extra/gnucash.png"
+
+--i_jdown		= i_path_usr .. "Icons/jd_logo_128_128.png"
+--i_gentoo	= i_path_usr .. "Icons/573px-gentoo_linux_logo_mattesvg.png"
+--i_myth 		= i_path_usr .. "Icons/mythtv.png"
+
 theme.awesome_icon = "/usr/share/awesome/icons/awesome16.png"
 
 return theme

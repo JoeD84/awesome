@@ -21,6 +21,10 @@ i_multimedia= i_path .. "places/folder1.png"
 i_terminal	= i_path .. "apps/terminal.png"
 i_kate		= i_path .. "apps/kedit.png"
 i_unterh	= i_path .. "categories/applications-other.png"
+i_volume   	= i_path .. "status/audio-volume-medium.png"
+i_deluge   	= i_path .. "apps-extra/deluge.png"
+i_gimp   	= i_path .. "apps-extra/gimp.png"
+i_kmymoney 	= i_path .. "apps-extra/gnucash.png"
 
 i_jdown		= i_path_usr .. "Icons/jd_logo_128_128.png"
 i_gentoo	= i_path_usr .. "Icons/573px-gentoo_linux_logo_mattesvg.png"
@@ -65,48 +69,48 @@ myinternet = {
   { "Chrome", 		chrome, 	        i_chrome },
   { "Webapps",		mywebapps, 	        i_chrome },
   { "JDownloader", 	"jdownloader", 	    i_jdown },
-  { "Deluge", 		"deluge -u gtk", 	i_jdown },
+  { "Deluge", 		"deluge -u gtk", 	i_deluge },
   { "Firefox", 		"firefox", 	        i_firefox },
   { "Pidgin", 		"pidgin",	        i_pidgin },
 }
 
 mymultimedia = {
-  { "MythTV", 		"mythfrontend",	i_myth },
+  { "MythTV", 		"mythfrontend",	    i_myth },
   { "Amarok", 		"/usr/kde/3.5/bin/amarok",	i_amarok  },
-  { "Editra",   	"Editra",       i_kate },
-  { "Gimp", 		"gimp", 	i_picasa },
-  { "Picasa", 		"picasa", 	i_picasa },
-  { "KMyMoney", 	kmymoney },
+  { "Editra",   	"Editra",           i_kate },
+  { "Gimp", 		"gimp", 	        i_gimp },
+  { "Picasa", 		"picasa", 	        i_picasa },
+  { "KMyMoney", 	kmymoney,           i_kmymoney },
 }
 
 myawesomemenu = {
-  { "Terminal(joe)", 	terminal_joe,	i_terminal },
-  { "Terminal(root)", 	terminal_root,	i_terminal },
+  { "Terminal(joe)", terminal_joe,	    i_terminal },
+  { "Terminal(root)", terminal_root,	i_terminal },
   { "Terminal(miranda)", terminal_miranda, i_terminal },
-  { "edit config", 	"Editra", i_kate },
-  { "Restart", 		awesome.restart, beautiful.awesome_icon },
-  { "Quit", 		awesome.quit, beautiful.awesome_icon },
+  { "edit config", 	"Editra",           i_kate },
+  { "Restart", 		awesome.restart,    beautiful.awesome_icon },
+  { "Quit", 		awesome.quit,       beautiful.awesome_icon },
   { "Shutdown", 	"awesome_shutdown", beautiful.awesome_icon }
 }
 
 myfavorites = {
-  { "Chrome", 		chrome, 	i_chrome },
-  { "MythTV", 		"mythfrontend", i_myth },
+  { "Chrome", 		chrome, 	        i_chrome },
+  { "MythTV", 		"mythfrontend",     i_myth },
   { "Amarok", 		"/usr/kde/3.5/bin/amarok", 	i_amarok },
   { "Konqueror", 	"konqueror --profile filemanagement", i_konq },
 }
 
 mymainmenu = awful.menu({ items = { 
-  { "Favoriten", 	myfavorites, 	i_favorites },
-  { "Internet", 	myinternet,	i_internet },
-  { "Multimedia", 	mymultimedia,	i_multimedia },
-  { "Unterhaltung", myunterhaltung,	i_unterh },
-  { "awesome", 		myawesomemenu, 	 beautiful.awesome_icon}
+  { "Favoriten", 	myfavorites, 	    beautiful.icons.favorites },
+  { "Internet", 	myinternet,	        i_internet },
+  { "Multimedia", 	mymultimedia,	    i_multimedia },
+  { "Unterhaltung", myunterhaltung,	    i_unterh },
+  { "awesome", 		myawesomemenu, 	    beautiful.awesome_icon}
 }
 })
 
 q_mainmenu = awful.menu({ items = {
-  { "Chrome(XXX)", 	chrome_xxx,	i_chrome },
+  { "Chrome(XXX)", 	    chrome_xxx,	    i_chrome },
   { "Pidgin(Quota)",	"sudo -A -u quota pidgin", i_pidgin},
   { "Terminal(Quota)",	terminal_quota, i_terminal},
 
