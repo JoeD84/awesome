@@ -1,6 +1,7 @@
 require("awful")		    -- Standard awesome library
 require("awful.autofocus")
 require("awful.rules")
+awful.util.spawn_with_shell("xcompmgr -r0 &")
 require("beautiful")  		-- Theme handling library
 require("naughty")		    -- Notification library
 --os.execute("export LD_PRELOAD=/usr/lib/libv4l/v4l1compat.so")
