@@ -5,20 +5,20 @@ function im_init(im_client, args)
 end
 im_rules = {
     all = 	{ 
-	  rule = 		{ },
+	  rule =	{ },
 	  properties = 	{ },
 	  callback = awful.client.setslave
-	},
+    },
     aside_any = { 
 	  rule_any = 	{ name={"Skype™ Chat"} },
-	  --rule = 		{ class = "Konqueror, XTerm", name = "Fortschrittsdialog, Kopiervorgang, Verschiebevorgang, Verschiebevorgang (6 % von 402.2 MiB )" }, 	
+	  --rule =	{ class = "Konqueror, XTerm", name = "Fortschrittsdialog, Kopiervorgang, Verschiebevorgang, Verschiebevorgang (6 % von 402.2 MiB )" }, 	
 	  properties = 	{ },
 	  callback = awful.client.setslave
-	},
-	main_any =	{ 
+    },
+    main_any =	{ 
 	  rule_any = 	{ role={"buddy_list"},  name={"shizodem - Skype™ (Beta)"} }, --name=".*Skype.*"
 	  properties = 	{  } 
-	}
+    }
 }
 function im_layout(im_client, args)
     if not awful.rules.match(im_client, im_rules.all.rule) then

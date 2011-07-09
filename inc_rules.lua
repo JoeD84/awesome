@@ -1,15 +1,24 @@
+rule_defaults={ rule = { },
+  properties = { border_width = beautiful.border_width,
+                 border_color = beautiful.border_normal,
+                 focus   = true,
+                 --floating = false,
+                 placement = centered,
+                 keys    = clientkeys,
+                 buttons = clientbuttons,
+                 opacity = 0.9 },
+  callback = my_layout
+}
+
+if false then
+    naughty.notify{text="Test: True ", timeout = 0}
+
+end
+    
 awful.rules.rules = {
+ 
     -- All clients will match this rule.
-    { rule = { },
-      properties = { border_width = beautiful.border_width,
-                     border_color = beautiful.border_normal,
-                     focus   = true,
-                     --floating = false,
-                     placement = centered,
-                     keys    = clientkeys,
-                     buttons = clientbuttons },
-	  callback = my_layout
-    },
+    rule_defaults,
     -- My Definitions --
     { rule = { class = "Plasma-desktop" },      			properties = { floating = true } },
     { rule = { class = "Plasma" },      				properties = { floating = true } },
@@ -23,15 +32,15 @@ awful.rules.rules = {
 
     -- Screen 1 --
     { rule = { class = "Chrome" }, 					properties = { tag = tags[1][1] } },
-    { rule = { class = "Chromium-browser-live" }, 			properties = { tag = tags[1][1] } },
+    { rule = { class = "Chromium-browser-live" }, 			properties = { tag = tags[1][1], opacity = 1 } },
     { rule = { class = "Firefox" },      				properties = { tag = tags[1][1], switchtotag = true } },
 
-    { rule = { class = "XTerm" }, 					properties = { opacity = 0.85 }, callback = awful.client.setslave },
-    { rule = { class = "XTerm", name = "xterm - root@michelle" }, 	properties = { tag = tags[1][2] } },
-    { rule = { class = "XTerm", name = "xterm - joe@michelle" }, 	properties = { tag = tags[1][3] } },
-    { rule = { class = "XTerm", name = "xterm - root@miranda" }, 	properties = { tag = tags[1][4] } },
-    
-    { rule = { class = "Pidgin" },      				properties = { tag = tags[1][5], floating = true, opacity = 0.9  }, callback = im_init },
+    { rule = { class = "XTerm" }, 					properties = { opacity = 0.85 } },
+    { rule = { class = "XTerm", name = "xterm - root@michelle" }, 	properties = { tag = tags[1][2], floating = false } },
+    { rule = { class = "XTerm", name = "xterm - joe@michelle" }, 	properties = { tag = tags[1][3], floating = false } },
+    { rule = { class = "XTerm", name = "xterm - root@miranda" }, 	properties = { tag = tags[1][4], floating = false } },
+        
+    { rule = { class = "Pidgin" },      				properties = { tag = tags[1][5], floating = true  }, callback = im_init },
     { rule = { class = "Pidgin", role = "buddy_list" }, 		properties = { tag = tags[1][5], floating = false } },
     { rule = { class = "Pidgin", role = "smiley_dialog" }, 		properties = { tag = tags[1][5], placement = centered } },
     { rule = { class = "Pidgin", name = "Neuer Alarm" }, 		properties = { tag = tags[1][5], floating = false }, callback = awful.client.setslave },
@@ -58,11 +67,21 @@ awful.rules.rules = {
     { rule = { class = "Vncviewer", name = "TightVNC: joe's X desktop (miranda:0)"}, properties = { tag = tags[1][9],  } },
 
     -- Screen 2 --
-    { rule = { class = "Mythfrontend" },				properties = { tag = tags[2][1], switchtotag = true, fullscreen = false, floating = false, size_hints_honor = false } },
+    { 
+        rule = { class = "Mythfrontend" },				
+        properties = { 
+            tag = tags[2][1], 
+            switchtotag = true, 
+            fullscreen = false, 
+            floating = false, 
+            size_hints_honor = false, 
+            opacity = 1,
+        } 
+    },
     { rule = { class = "MPlayer" },      				properties = { tag = tags[2][2], switchtotag = true, floating = true } },
     { rule = { class = "Smplayer" },      				properties = { tag = tags[2][2], switchtotag = true } },
     { rule = { name  = "rygel" },        				properties = { tag = tags[2][2], switchtotag = true } },
-    { rule = { class = "Amarok" },      				properties = { tag = tags[2][3], switchtotag = true } },
+    { rule = { class = "Amarok" },      				properties = { tag = tags[2][3], switchtotag = true, floating = false } },
     { rule = { class = "Gwenview" },      				properties = { tag = tags[2][5] } },
     { rule = { class = "Kuickview" },      				properties = { tag = tags[2][5] } },
 
