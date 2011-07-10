@@ -25,7 +25,7 @@ function exists(filename)
   local file = io.open(filename)
   if file then
 	io.close(file)
-    naughty.notify{text="Already started!\n" .. os.date("%d.%m.%Y %T\n\n"), timeout = 10}
+        naughty.notify{text="Already started!\n" .. os.date("%d.%m.%Y %T\n\n"), timeout = 10}
 	return true
   else
 	autostart()

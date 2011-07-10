@@ -16,6 +16,8 @@ function choose_screen(client_in, args)
     my_screen(client_in, args)
 end
 
+
+
 function my_screen(my_client, args)
     naughty.notify{text="My Screen",  timeout=0}
     if not awful.rules.match(my_client, rule_smplayer.rule) then
