@@ -1,9 +1,9 @@
 rule_smplayer = {
     rule = { class = "Smplayer" },  
     properties = { 
-        --tag = tags[2][2], 
+        tag = tags[2][2], 
         switchtotag = true, 
-        opacity = 0.5 }, 
+        opacity = 1 }, 
     callback = choose_screen 
 }
 

@@ -17,7 +17,7 @@ i_pidgin	= i_path .. "apps-extra/gaim.png"
 i_konq		= i_path .. "apps-extra/gnome-home.png"
 i_internet	= i_path .. "categories/applications-internet.png"
 i_mainmenu	= i_path .. "categories/applications-other.png"
-i_multimedia= i_path .. "places/folder1.png"
+i_multimedia    = i_path .. "places/folder1.png"
 i_terminal	= i_path .. "apps/terminal.png"
 i_kate		= i_path .. "apps/kedit.png"
 i_unterh	= i_path .. "categories/applications-other.png"
@@ -41,7 +41,7 @@ chrome_xxx =		chrome_bin .. " --user-data-dir=/home/joe/.config/chromium-live/Jo
 chrome_mail = 		chrome .. " -app=https://mail.google.com"
 chrome_calendar = 	chrome .. " -app=https://www.google.com/calendar"
 chrome_reader = 	chrome .. " -app=https://www.google.com/reader"
-chrome_reader_play =chrome .. " -app='https://www.google.com/reader/play/#item/user%2F02902929592956513783%2Flabel%2FTumblr/0'"
+chrome_reader_play =    chrome .. " -app='https://www.google.com/reader/play/#item/user%2F02902929592956513783%2Flabel%2FTumblr/0'"
 chrome_docs = 		chrome .. " -app=https://docs.google.com/"
 chrome_flauntr =	chrome .. " -app=http://www.flauntr.com/flauntr/assets/app.jsp"
 chrome_friv =		chrome .. " -app=http://www.friv.com"
@@ -97,25 +97,25 @@ myawesomemenu = {
 
 myfavorites = {
   { "Chrome", 		chrome, 	        i_chrome },
-  { "MythTV", 		"mythfrontend",     i_myth },
+  { "MythTV", 		"mythfrontend",         i_myth },
   { "Amarok", 		"amarok",        	i_amarok },
   { "Konqueror", 	"konqueror --profile filemanagement", i_konq },
 }
 
 mymainmenu = awful.menu({ items = { 
-  { "Favoriten", 	myfavorites, 	    beautiful.icons.favorites },
+  { "Favoriten", 	myfavorites, 	        beautiful.icons.favorites },
   { "Internet", 	myinternet,	        i_internet },
   { "Webapps",		mywebapps, 	        i_chrome },
-  { "Multimedia", 	mymultimedia,	    i_multimedia },
-  { "Unterhaltung", myunterhaltung,	    i_unterh },
-  { "awesome", 		myawesomemenu, 	    beautiful.awesome_icon}
+  { "Multimedia", 	mymultimedia,	        i_multimedia },
+  { "Unterhaltung",     myunterhaltung,	        i_unterh },
+  { "awesome", 		myawesomemenu, 	        beautiful.awesome_icon}
 }
 })
 
 q_mainmenu = awful.menu({ items = {
-  { "Chrome(XXX)", 	    chrome_xxx,	    i_chrome },
+  { "Chrome(XXX)", 	chrome_xxx,	        i_chrome },
   { "Pidgin(Quota)",	"sudo -A -u quota pidgin", i_pidgin},
-  { "Terminal(Quota)",	terminal_quota, i_terminal},
+  { "Terminal(Quota)",	terminal_quota,         i_terminal},
 
 }
 })
