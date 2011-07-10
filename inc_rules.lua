@@ -1,19 +1,57 @@
-rule_defaults={ rule = { },
-  properties = { border_width = beautiful.border_width,
-                 border_color = beautiful.border_normal,
-                 focus   = true,
-                 --floating = false,
-                 placement = centered,
-                 keys    = clientkeys,
-                 buttons = clientbuttons,
-                 opacity = 0.9 },
-  callback = my_layout
+rule_smplayer = {
+    rule = { class = "Smplayer" },  
+    properties = { 
+        --tag = tags[2][2], 
+        switchtotag = true, 
+        opacity = 0.5 }, 
+    callback = choose_screen 
 }
 
-if false then
-    naughty.notify{text="Test: True ", timeout = 0}
+screen_pos = 2
 
+function choose_screen(client_in, args)
+    naughty.notify{text="Choose Screen",  timeout=0}
+    client_in:add_signal("property::minimized", my_screen)
+    client_in:add_signal("tagged", my_screen)
+    my_screen(client_in, args)
 end
+
+function my_screen(my_client, args)
+    naughty.notify{text="My Screen",  timeout=0}
+    if not awful.rules.match(my_client, rule_smplayer.rule) then
+        return
+    end
+    for k, c in pairs(client.get(1)) do
+        naughty.notify{text="Move to Screen" .. my_client .."\nTest:"..c,  timeout=0}
+        awful.client.movetotag(tags[screen_pos][5], c)
+    end
+    naughty.notify{text="Tag: " .. t,  timeout=0}
+end
+
+
+rule_defaults={ 
+    rule = { },
+    properties = { 
+        border_width = beautiful.border_width,
+        border_color = beautiful.border_normal,
+        focus   = true,
+        --floating = false,
+        placement = centered,
+        keys    = clientkeys,
+        buttons = clientbuttons,
+        opacity = 0.9 },
+    callback = my_layout
+}
+
+rule_mplayer = { 
+    rule = { class = "MPlayer" }, 
+    properties = { 
+        tag = tags[1][8], 
+        switchtotag = true, 
+        floating = true } 
+}
+
+
     
 awful.rules.rules = {
  
@@ -67,19 +105,16 @@ awful.rules.rules = {
     { rule = { class = "Vncviewer", name = "TightVNC: joe's X desktop (miranda:0)"}, properties = { tag = tags[1][9],  } },
 
     -- Screen 2 --
-    { 
-        rule = { class = "Mythfrontend" },				
+    {   rule = { class = "Mythfrontend" },				
         properties = { 
             tag = tags[2][1], 
             switchtotag = true, 
             fullscreen = false, 
             floating = false, 
             size_hints_honor = false, 
-            opacity = 1,
-        } 
-    },
-    { rule = { class = "MPlayer" },      				properties = { tag = tags[2][2], switchtotag = true, floating = true } },
-    { rule = { class = "Smplayer" },      				properties = { tag = tags[2][2], switchtotag = true } },
+            opacity = 1 } },
+    rule_mplayer,
+    rule_smplayer,
     { rule = { name  = "rygel" },        				properties = { tag = tags[2][2], switchtotag = true } },
     { rule = { class = "Amarok" },      				properties = { tag = tags[2][3], switchtotag = true, floating = false } },
     { rule = { class = "Gwenview" },      				properties = { tag = tags[2][5] } },

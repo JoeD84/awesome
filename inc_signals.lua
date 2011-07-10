@@ -2,10 +2,11 @@
 -- Signal function to execute when a new client appears.
 
 function call_layouts()
-  naughty.notify{text="Calling Layouts", timeout = 0}
+  --naughty.notify{text="Calling Layouts", timeout = 10}
   gimp_layout()
   my_layout()
   im_layout()
+  --choose_screen()
 end
 
 client.add_signal(
@@ -36,19 +37,12 @@ client.add_signal(
                 awful.placement.no_offscreen(c)
             end
         end
-            
-        --callback = my_layout
-        my_layout()
-        im_layout()
+        call_layouts()
     end
 )
 
 client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
-client.add_signal("unfocus", 
-    function(c) 
-        c.border_color = beautiful.border_normal 
-    end
-)
+client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- Wenn ein Client sich schließt, dann berechne das Gimp-Layout neu.
 client.add_signal("unmanage", 
     function(c)

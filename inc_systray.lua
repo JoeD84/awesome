@@ -2,6 +2,22 @@
 -- Create a textclock widget
 mytextclock = awful.widget.textclock({ align = "right" })
 
+-- Textclock Tooltip
+myclock_t = awful.tooltip({
+    objects = { K },
+    timer_function = function()
+    return os.date([[
+        Today is %A %B %d %Y
+        The time is %T]])
+    end,
+})
+
+--myclock_t:add_to_object(mytextclock)
+
+require('calendar2')
+calendar2.addCalendarToWidget(mytextclock)
+
+
 -- Create a systray
 mysystray = widget({ type = "systray" })
 
