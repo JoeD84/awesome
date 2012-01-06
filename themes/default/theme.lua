@@ -8,7 +8,7 @@ theme = {}
 
 theme.icons = {}
 theme.icons.path =      "/home/joe/.kde4/share/icons/OxygenRefit2-black-version_x/128x128/"
-theme.icons.path_px	=   "/usr/share/pixmaps/"
+theme.icons.path_px =   "/usr/share/pixmaps/"
 theme.icons.path_bw =   "/usr/share/icons/black and white/128x128"
 theme.icons.path_usr =  "/usr/share/logos/"
 
@@ -37,10 +37,10 @@ theme.icons.favorites = theme.icons.path .. "actions/bookmark-new.png"
 --i_myth 		= i_path_usr .. "Icons/mythtv.png"
 
 theme.path = "/home/joe/.config/awesome/themes/default/"
-theme.wallpaper_cmd = { "awsetbg /home/joe/_Multimedia/_Customization/_Wallpaper/Black_and_White/_2girls.jpg" }
+theme.wallpaper_cmd = { "awsetbg -r /mnt/data/_Multimedia/_Customization/_Wallpaper/Black_and_White" }
 --theme.wallpaper_cmd = { "awsetbg /home/joe/_Multimedia/_Customization/_Wallpaper/Black_and_White/wallpaper-56701.jpg" }
 theme.font          = "sans 8"
-
+theme.font          = "Sony Sketch EF 12"
 theme.bg_normal     = "#000000"
 theme.bg_focus      = "#000000"
 theme.bg_urgent     = "#FF0000"

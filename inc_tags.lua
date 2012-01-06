@@ -8,15 +8,15 @@ tags.settings = {
     { name = "5:IM", 		layout = awful.layout.suit.tile,		wmfact=0.3 },
     { name = "6:Text", 		layout = awful.layout.suit.magnifier,		wmfact=0.88 },
     { name = "7:File", 		layout = awful.layout.suit.tile.bottom,		wmfact=0.84 },
-    { name = "8:Multimedia",    layout = awful.layout.suit.tile.right,		wmfact=0.7 },
+    { name = "8:Multimedia",    layout = awful.layout.suit.max,			wmfact=0.7 },
     { name = "9:Download", 	layout = awful.layout.suit.max,			wmfact=0.5 },
 }
 
 tags.settings2 = {
     { name = "1:MythTV", 	layout = awful.layout.suit.max,			wmfact=0.5 },
     { name = "2:GMplayer", 	layout = awful.layout.suit.max,			wmfact=0.5 },
-    { name = "3:Amarok", 	layout = awful.layout.suit.max,			wmfact=0.5 },
-    { name = "4:VirtualBox",    layout = awful.layout.suit.max,			wmfact=0.5 },
+    { name = "3:Amarok", 	layout = awful.layout.suit.tile.bottom,		wmfact=0.1 },
+    { name = "4:VirtualBox",    layout = awful.layout.suit.tile.bottom,		wmfact=0.9 },
     { name = "5:Bilder", 	layout = awful.layout.suit.max,			wmfact=0.5 },
     { name = "6:Misc", 		layout = awful.layout.suit.floating,		wmfact=0.5 },
     { name = "7:Misc", 		layout = awful.layout.suit.floating,		wmfact=0.5 },
@@ -35,13 +35,14 @@ for s = 1, 1 do
   tags[s][1].selected = true
 end
 
-for s = 2, 2 do
-  tags[s] = {}
-  for i, v in ipairs(tags.settings2) do
-    tags[s][i] = tag({ name = v.name })
-    tags[s][i].screen = s
-    awful.tag.setproperty(tags[s][i], "layout", v.layout)
-  end
-  tags[s][1].selected = true
-end
+--for s = 2, 2 do
+--  tags[s] = {}
+--  for i, v in ipairs(tags.settings2) do
+--    tags[s][i] = tag({ name = v.name })
+--    tags[s][i].screen = s
+--    awful.tag.setproperty(tags[s][i], "layout", v.layout)
+--    awful.tag.setmwfact(v.wmfact, tags[s][i])
+--  end
+--  tags[s][1].selected = true
+--end
 -- }}}

@@ -84,6 +84,19 @@ clientkeys = awful.util.table.join(
             c.maximized_horizontal = not c.maximized_horizontal
             c.maximized_vertical   = not c.maximized_vertical
         end
+    ),
+    awful.key({ modkey, "Shift"   }, "a",
+        function (c)
+          myclient = c
+          ctag = awful.tag.getidx(awful.tag.selected(1))
+          naughty.notify{text="Current Tag: "..ctag}
+          for j = 1 , 9 do
+            if not (j == ctag) then
+              awful.client.toggletag(tags[1][j],myclient)
+              naughty.notify{text="Loop: "..j}
+            end
+          end
+        end
     )
 )
 
@@ -123,7 +136,8 @@ for i = 1, keynumber do
                       if client.focus and tags[client.focus.screen][i] then
                           awful.client.toggletag(tags[client.focus.screen][i])
                       end
-                  end))
+                  end)
+        )
 end
 
 clientbuttons = awful.util.table.join(

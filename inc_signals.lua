@@ -3,7 +3,7 @@
 
 function call_layouts()
   --naughty.notify{text="Calling Layouts", timeout = 10}
-  gimp_layout()
+  -- gimp_layout()
   my_layout()
   im_layout()
   --choose_screen()
