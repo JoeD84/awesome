@@ -36,7 +36,7 @@ function my_layout(my_client, args)
     local main = 0
     local my_tag_obj = tags[1][7]
     for k, c in pairs(client.get(1)) do
-        if not c.minimized then
+        if not ( c.minimized or floating.get(c) ) then
             for k2, t in pairs(c:tags()) do
                 if t == my_tag_obj then
                     if awful.rules.match(c, my_rules.main.rule) then

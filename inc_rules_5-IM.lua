@@ -5,9 +5,7 @@ function im_init(im_client, args)
 end
 im_rules = {
     all = 	{ 
-	  rule =	{ },
-	  properties = 	{ },
-	  callback = awful.client.setslave
+	  rule =	{ }
     },
     aside_any = { 
 	  rule_any = 	{ name={"Skype™ Chat"} },
@@ -31,15 +29,16 @@ function im_layout(im_client, args)
         if not c.minimized then
             for k2, t in pairs(c:tags()) do
                 if t == my_tag_obj then
-					if not awful.rules.match_any(c, im_rules.main_any.rule_any) then
-					  aside = 1
-					  --naughty.notify{text="Test"}
-					  if awful.rules.match_any(c, im_rules.aside_any.rule_any) then
-						aside = 1
-					  end
-					else
-					  main = main + 1
-					end
+                    if not awful.rules.match_any(c, im_rules.main_any.rule_any) then
+                      aside = 1
+                      --naughty.notify{text="Test"}
+                      if awful.rules.match_any(c, im_rules.aside_any.rule_any) then
+                            aside = 1
+                      end
+                      awful.client.setslave(c)
+                    else
+                      main = main + 1
+                    end
                 end
             end
         end

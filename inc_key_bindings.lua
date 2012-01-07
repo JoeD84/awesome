@@ -88,12 +88,9 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "a",
         function (c)
           myclient = c
-          ctag = awful.tag.getidx(awful.tag.selected(1))
-          naughty.notify{text="Current Tag: "..ctag}
           for j = 1 , 9 do
-            if not (j == ctag) then
+            if not (j == awful.tag.getidx(awful.tag.selected(1))) then
               awful.client.toggletag(tags[1][j],myclient)
-              naughty.notify{text="Loop: "..j}
             end
           end
         end

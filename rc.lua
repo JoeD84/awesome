@@ -7,7 +7,7 @@ require("awful")
 require("naughty")
 
 confdir = awful.util.getdir("config")
-local rc, err = loadfile(confdir .. "/rc_joe.lua");
+local rc, err = loadfile(confdir .. "/_joe.lua");
 if rc then
     rc, err = pcall(rc);
     if rc then

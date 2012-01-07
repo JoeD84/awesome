@@ -35,14 +35,14 @@ for s = 1, 1 do
   tags[s][1].selected = true
 end
 
---for s = 2, 2 do
---  tags[s] = {}
---  for i, v in ipairs(tags.settings2) do
---    tags[s][i] = tag({ name = v.name })
---    tags[s][i].screen = s
---    awful.tag.setproperty(tags[s][i], "layout", v.layout)
---    awful.tag.setmwfact(v.wmfact, tags[s][i])
---  end
---  tags[s][1].selected = true
---end
+for s = 2, 2 do
+  tags[s] = {}
+  for i, v in ipairs(tags.settings2) do
+    tags[s][i] = tag({ name = v.name })
+    tags[s][i].screen = s
+    awful.tag.setproperty(tags[s][i], "layout", v.layout)
+    awful.tag.setmwfact(v.wmfact, tags[s][i])
+  end
+  tags[s][1].selected = true
+end
 -- }}}
