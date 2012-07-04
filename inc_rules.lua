@@ -30,6 +30,23 @@ rule_smplayer = {
 	opacity = 1 } 
 }
 
+rule_smplayer2 = { 
+    rule = { class = "Smplayer2" }, 
+    properties = { 
+        tag = tags[1][8], 
+        switchtotag = true, 
+        floating = false,
+	opacity = 1 } 
+}
+rule_vlc = { 
+    rule = { class = "Vlc" }, 
+    properties = { 
+        tag = tags[1][8], 
+        switchtotag = true, 
+        floating = false,
+	opacity = 1 } 
+}
+
 rule_mythfrontend = {   
     rule = { class = "Mythfrontend" },				
     properties = { 
@@ -54,6 +71,7 @@ awful.rules.rules = {
     { rule = { class = "Xmessage" },   					properties = { floating = true } },
     { rule = { class = "ij-ImageJ" },   				properties = { floating = true } },
     { rule = { name  = "ImageJ" },   					properties = { floating = true } },
+    { rule = { instance  = "sun-awt-X11-XFramePeer" },			properties = { floating = true } },
     { rule = { name  = "Figure 1" },   				        properties = { floating = true } },
     { rule = { name  = "Minecraft" }, 				        properties = { floating = true } },
 	
@@ -106,6 +124,8 @@ awful.rules.rules = {
     rule_mythfrontend,
     rule_mplayer,
     rule_smplayer,
+    rule_smplayer2,
+    rule_vlc,
     { rule = { name  = "rygel" },        				properties = { tag = tags[1][8], switchtotag = true } },
     
     { rule = { class = "Amarok", name = "Schmale Werkzeugleiste" },	properties = { tag = tags[1][7], switchtotag = true, floating = false, placement = top } },

@@ -46,6 +46,6 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 -- Wenn ein Client sich schließt, dann berechne das Gimp-Layout neu.
 client.add_signal("unmanage", 
     function(c)
-        call_layouts()
+        my_layout_2()
     end
 )

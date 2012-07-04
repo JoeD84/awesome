@@ -40,6 +40,9 @@ chrome_bin =		"google-chrome"
 chrome_opts =		" "
 chrome =		chrome_bin .. chrome_opts
 chrome_xxx =		chrome_bin .. " --user-data-dir=/home/joe/.config/google-chrome/Quota69 " .. chrome_opts
+chrome_pd =		chrome_bin .. " --user-data-dir=/home/joe/.config/google-chrome/PeterDamien " .. chrome_opts
+chrome_fb = 		chrome .. " -app=https://facebook.com"
+chrome_lastfm = 	chrome .. " -app=http://www.lastfm.de/listen/user/sHiZodEM/mix"
 chrome_mail = 		chrome .. " -app=https://mail.google.com"
 chrome_calendar = 	chrome .. " -app=https://www.google.com/calendar"
 chrome_reader = 	chrome .. " -app=https://www.google.com/reader"
@@ -55,9 +58,12 @@ chrome_ytl =		chrome .. " -app=http://www.youtube.com/leanback"
 
 
 mywebapps = {
+  { "Facebook",         chrome_fb,              i_chrome },
+  { "last.fm",          chrome_lastfm,          i_chrome },
   { "GMail",            chrome_mail,            i_path_usr.."Google/gmail.png" },
   { "GCalendar",        chrome_calendar,        i_path_usr.."Google/gcalendar.png" },
   { "GReader",          chrome_reader,          i_path_usr.."Google/greader.png" },
+  { "GReader",          chrome_reader_play,     i_path_usr.."Google/greader.png" },
   { "GDocs",            chrome_docs,            i_path_usr.."Google/gdocs.png" },
   { "YouTube Leanback", chrome_ytl,             i_chrome },
   { "eBuddy",           chrome_ebuddy,          i_chrome },
@@ -76,6 +82,7 @@ myinternet = {
   { "JDownloader",      "jdownloader",          i_jdown },
   { "Firefox",          "firefox",              i_firefox },
   { "Pidgin",           "pidgin",               i_pidgin },
+  { "Webapps",          mywebapps,              i_chrome },
 }
 
 mymultimedia = {
@@ -94,7 +101,7 @@ myawesomemenu = {
   { "edit config",      "editra",               i_kate },
   { "Restart",          awesome.restart,        beautiful.awesome_icon },
   { "Quit",             awesome.quit,           beautiful.awesome_icon },
-  { "Shutdown",         "awesome_shutdown",     beautiful.awesome_icon }
+  { "Shutdown",         "awesome_shutdown",     beautiful.awesome_icon },
 }
 
 myfavorites = {
@@ -107,21 +114,24 @@ myfavorites = {
 mymainmenu = awful.menu({ items = { 
   { "Favoriten",        myfavorites,            i_favorites },
   { "Internet",         myinternet,             i_internet },
-  { "Webapps",          mywebapps,              i_chrome },
   { "Multimedia",       mymultimedia,           i_multimedia },
   { "Unterhaltung",     myunterhaltung,         i_unterh },
-  { "awesome",          myawesomemenu,          beautiful.awesome_icon}
+  { "awesome",          myawesomemenu,          beautiful.awesome_icon},
 }
 })
 
 q_mainmenu = awful.menu({ items = {
   { "Chrome(XXX)", 	chrome_xxx, i_chrome },
+  { "Chrome(PD)", 	chrome_pd, i_chrome },
   { "Pidgin(Quota)",	"sudo -A -u quota pidgin", i_pidgin },
   { "Terminal(Quota)",	terminal_quota,         i_terminal },
 
 }
 
 })
+
+
+w_mainmenu = awful.menu({ items = mywebapps })
 
 mylauncher = awful.widget.launcher(
   { image = image(i_gentoo), menu = mymainmenu }

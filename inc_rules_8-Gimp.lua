@@ -1,12 +1,13 @@
+-- Layout Idee von http://www.uninformativ.de/?ndo=single&newsid=115 
 function gimp_init(gimp_client, args)
     gimp_client:add_signal("property::minimized", gimp_layout)
     gimp_client:add_signal("tagged", gimp_layout)
     gimp_layout(gimp_client, args)
 end
 gimp_rules = {
-    all = 		{ rule = { class = "Gimp" }, 								properties = { tag = tags[1][8], size_hints_honor = false, }, },--callback = gimp_init },
+    all = 	{ rule = { class = "Gimp" }, 					properties = { tag = tags[1][8], size_hints_honor = false, }, },--callback = gimp_init },
     toolbox = 	{ rule = { class = "Gimp", role = "gimp-toolbox" }, 		properties = { floating = false }, callback = awful.client.setslave },
-    dock = 		{ rule = { class = "Gimp", role = "gimp-dock" }, 			properties = { floating = false }, callback = awful.client.setslave },
+    dock = 	{ rule = { class = "Gimp", role = "gimp-dock" }, 		properties = { floating = false }, callback = awful.client.setslave },
     image = 	{ rule = { class = "Gimp", role = "gimp-image-window" }, 	properties = { floating = false } },
 }
 function gimp_layout(gimp_client, args)

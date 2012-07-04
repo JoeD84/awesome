@@ -1,7 +1,6 @@
 require("awful")		    	        -- Standard awesome library
 require("awful.autofocus")
 require("awful.rules")
-awful.util.spawn_with_shell("xcompmgr -r0 &")   -- Do this naughty Transparency thing
 require("beautiful")  		    	        -- Theme handling library
 require("naughty")		    	        -- Notification library
 require("vicious")			        -- ?

@@ -13,15 +13,15 @@ tags.settings = {
 }
 
 tags.settings2 = {
-    { name = "1:MythTV", 	layout = awful.layout.suit.max,			wmfact=0.5 },
-    { name = "2:GMplayer", 	layout = awful.layout.suit.max,			wmfact=0.5 },
-    { name = "3:Amarok", 	layout = awful.layout.suit.tile.bottom,		wmfact=0.1 },
-    { name = "4:VirtualBox",    layout = awful.layout.suit.tile.bottom,		wmfact=0.9 },
-    { name = "5:Bilder", 	layout = awful.layout.suit.max,			wmfact=0.5 },
-    { name = "6:Misc", 		layout = awful.layout.suit.floating,		wmfact=0.5 },
-    { name = "7:Misc", 		layout = awful.layout.suit.floating,		wmfact=0.5 },
-    { name = "8:GIMP", 		layout = awful.layout.suit.floating,		wmfact=0.5 },
-    { name = "9:Misc", 		layout = awful.layout.suit.floating,		wmfact=0.5 },
+    { name = "1", 	layout = awful.layout.suit.max,			wmfact=0.5 },
+    { name = "2", 	layout = awful.layout.suit.max,			wmfact=0.5 },
+    { name = "3", 	layout = awful.layout.suit.tile.bottom,		wmfact=0.1 },
+    { name = "4",       layout = awful.layout.suit.tile.bottom,		wmfact=0.9 },
+    { name = "5", 	layout = awful.layout.suit.max,			wmfact=0.5 },
+    { name = "6", 	layout = awful.layout.suit.floating,		wmfact=0.5 },
+    { name = "7", 	layout = awful.layout.suit.floating,		wmfact=0.5 },
+    { name = "8", 	layout = awful.layout.suit.floating,		wmfact=0.5 },
+    { name = "9", 	layout = awful.layout.suit.floating,		wmfact=0.5 },
 }
 
 for s = 1, 1 do
@@ -34,15 +34,16 @@ for s = 1, 1 do
   end
   tags[s][1].selected = true
 end
-
-for s = 2, 2 do
-  tags[s] = {}
-  for i, v in ipairs(tags.settings2) do
-    tags[s][i] = tag({ name = v.name })
-    tags[s][i].screen = s
-    awful.tag.setproperty(tags[s][i], "layout", v.layout)
-    awful.tag.setmwfact(v.wmfact, tags[s][i])
-  end
-  tags[s][1].selected = true
+if screen.count() == 2 then                     -- Do we have 2 Screens?
+    for s = 2, 2 do
+      tags[s] = {}
+      for i, v in ipairs(tags.settings2) do
+        tags[s][i] = tag({ name = v.name })
+        tags[s][i].screen = s
+        awful.tag.setproperty(tags[s][i], "layout", v.layout)
+        awful.tag.setmwfact(v.wmfact, tags[s][i])
+      end
+      tags[s][1].selected = true
+    end
 end
 -- }}}

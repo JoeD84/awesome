@@ -1,10 +1,12 @@
 autostart_pid="/home/awesome.pid"
 
+awful.util.spawn_with_shell("xcompmgr -r0 &")   -- Do this naughty Transparency thing
+
 function autostart()
   os.execute("touch " .. autostart_pid)
   os.execute("nepomukserver &")
   awful.util.spawn(chrome_mail)
-  awful.util.spawn(chrome_calendar)
+  awful.util.spawn(chrome_fb)
   awful.util.spawn(chrome_reader)
   awful.util.spawn(terminal_joe)
   awful.util.spawn(terminal_root)
@@ -18,7 +20,7 @@ function autostart()
   os.execute("pidgin&")
   --os.execute("skype&")
   os.execute("blueman-applet&")
-  os.execute("dropbox start&")
+  --os.execute("dropbox start&")
   naughty.notify{text="Autostart complete!\n" .. os.date("%d.%m.%Y %T\n\n"), timeout = 10}
 end
 

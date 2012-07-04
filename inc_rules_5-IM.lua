@@ -1,3 +1,4 @@
+-- Layout Idee von http://www.uninformativ.de/?ndo=single&newsid=115 
 function im_init(im_client, args)
     im_client:add_signal("property::minimized", im_layout)
     im_client:add_signal("tagged", im_layout)
