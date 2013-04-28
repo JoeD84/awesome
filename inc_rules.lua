@@ -115,6 +115,7 @@ awful.rules.rules = {
     { rule = { class = "Gimp", role = "gimp-dock" },    		properties = { floating = false }, callback = awful.client.setslave },
     { rule = { class = "Gimp", role = "gimp-image-window" }, 	        properties = { floating = false }  },
 
+    { rule = { class = "jd-Main" }, 		                        properties = { tag = tags[1][9], floating = false } },
     { rule = { class = "Firefox",   name = "Downloads" }, 		properties = { tag = tags[1][9], floating = true } },
     { rule = { class = "Deluge" }, 					properties = { tag = tags[1][9] } },
     { rule = { class = "Vncviewer" },                                   properties = { tag = tags[1][9], floating = true } },

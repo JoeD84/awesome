@@ -11,16 +11,20 @@ function autostart()
   awful.util.spawn(terminal_joe)
   awful.util.spawn(terminal_root)
   awful.util.spawn(terminal_michelle)
-  --awful.util.spawn(kmymoney)
   --os.execute("shark_online &")
   --os.execute("imwheel -k &")
   os.execute("xbindkeys")
   --os.execute("irexec&")
   --os.execute("irxevent&")
   os.execute("pidgin&")
-  --os.execute("skype&")
+  os.execute("skype&")
   os.execute("blueman-applet&")
-  --os.execute("dropbox start&")
+  os.execute("dropbox start&")
+  -- Nur an Samstagen ausführen!
+  if os.date("%w") == "6" then
+    naughty.notify{text="Samstag", timeout = 0}
+    --awful.util.spawn(kmymoney)    
+  end
   naughty.notify{text="Autostart complete!\n" .. os.date("%d.%m.%Y %T\n\n"), timeout = 10}
 end
 
@@ -29,6 +33,8 @@ function exists(filename)
   if file then
 	io.close(file)
         naughty.notify{text="Already started!\n" .. os.date("%d.%m.%Y %T\n\n"), timeout = 10}
+
+
 	return true
   else
 	autostart()

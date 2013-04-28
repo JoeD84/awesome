@@ -4,7 +4,7 @@ require("awful.rules")
 require("beautiful")  		    	        -- Theme handling library
 require("naughty")		    	        -- Notification library
 require("vicious")			        -- ?
-require("inotify")			        -- Benachrichtigungen
+--require("inotify")			        -- Benachrichtigungen
 require("inc_variables")		        -- Theme / Layouts / Programs Variables
 require("inc_tags")			        -- Tags
 require("inc_menu")			        -- Menu

@@ -84,7 +84,7 @@ awful.rules.rules = {
     { rule = { class = "Wine" },      			        	properties = { floating = true } },
     { rule = { class = "Xmessage" },   					properties = { floating = true } },
     { rule = { class = "ij-ImageJ" },   				properties = { floating = true } },
-    { rule = { instance  = "sun-awt-X11-XFramePeer" },			properties = { floating = true } },
+--  { rule = { instance  = "sun-awt-X11-XFramePeer" },			properties = { floating = true } },
     { rule = { name  = "ImageJ" },   					properties = { floating = true } },
     { rule = { name  = "Figure 1" },   				        properties = { floating = true } },
     { rule = { name  = "Minecraft" }, 				        properties = { floating = true } },

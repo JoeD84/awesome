@@ -1,15 +1,27 @@
 -- {{{ Tags
 tags = {}
+--tags.settings = {
+--    { name = "1:WWW", 		layout = awful.layout.suit.magnifier,		wmfact=0.87 },
+--    { name = "2:root", 		layout = awful.layout.suit.tile.left,		wmfact=0.6 },
+--    { name = "3:joe", 		layout = awful.layout.suit.tile.left,		wmfact=0.6 },
+--    { name = "4:miranda", 	layout = awful.layout.suit.tile.left,		wmfact=0.6 },
+--    { name = "5:IM", 		layout = awful.layout.suit.tile,		wmfact=0.3 },
+--    { name = "6:Text", 		layout = awful.layout.suit.magnifier,		wmfact=0.88 },
+--    { name = "7:File", 		layout = awful.layout.suit.tile.bottom,		wmfact=0.84 },
+--    { name = "8:Multimedia",    layout = awful.layout.suit.max,			wmfact=0.7 },
+--    { name = "9:Download", 	layout = awful.layout.suit.max,			wmfact=0.5 },
+--}
+
 tags.settings = {
-    { name = "1:WWW", 		layout = awful.layout.suit.magnifier,		wmfact=0.87 },
-    { name = "2:root", 		layout = awful.layout.suit.tile.left,		wmfact=0.6 },
-    { name = "3:joe", 		layout = awful.layout.suit.tile.left,		wmfact=0.6 },
-    { name = "4:miranda", 	layout = awful.layout.suit.tile.left,		wmfact=0.6 },
-    { name = "5:IM", 		layout = awful.layout.suit.tile,		wmfact=0.3 },
-    { name = "6:Text", 		layout = awful.layout.suit.magnifier,		wmfact=0.88 },
-    { name = "7:File", 		layout = awful.layout.suit.tile.bottom,		wmfact=0.84 },
-    { name = "8:Multimedia",    layout = awful.layout.suit.max,			wmfact=0.7 },
-    { name = "9:Download", 	layout = awful.layout.suit.max,			wmfact=0.5 },
+    { name = "1", 	layout = awful.layout.suit.magnifier,		wmfact=0.87 },
+    { name = "2", 	layout = awful.layout.suit.tile.left,		wmfact=0.6 },
+    { name = "3", 	layout = awful.layout.suit.tile.left,		wmfact=0.6 },
+    { name = "4", 	layout = awful.layout.suit.tile.left,		wmfact=0.6 },
+    { name = "5", 	layout = awful.layout.suit.tile,		wmfact=0.3 },
+    { name = "6", 	layout = awful.layout.suit.magnifier,		wmfact=0.88 },
+    { name = "7", 	layout = awful.layout.suit.tile.bottom,		wmfact=0.84 },
+    { name = "8",       layout = awful.layout.suit.max,			wmfact=0.7 },
+    { name = "9", 	layout = awful.layout.suit.max,			wmfact=0.5 },
 }
 
 tags.settings2 = {

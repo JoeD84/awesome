@@ -9,7 +9,8 @@ i_path_bw 	= "/usr/share/icons/black and white/" .. i_size
 i_path_usr	= "/usr/share/logos/"
 
 --i_chrome	= "/usr/share/icons/hicolor/128x128/apps/chromium-browser-live.png"
-i_chrome	= "/opt/google/chrome/product_logo_128.png"
+i_chrome 	= "/opt/google/chrome/product_logo_128.png"
+i_skype 	= "/usr/share/icons/hicolor/48x48/apps/skype.png"
 i_picasa	= i_path_px .. "picasa.xpm"
 i_firefox	= i_path_px .. "firefox-bin-icon.png"
 i_amarok	= i_path_bw .. "apps/amarok.png"
@@ -26,6 +27,7 @@ i_volume   	= i_path .. "status/audio-volume-medium.png"
 i_deluge   	= i_path .. "apps-extra/deluge.png"
 i_gimp   	= i_path .. "apps-extra/gimp.png"
 i_kmymoney 	= i_path .. "apps-extra/gnucash.png"
+i_FI            = i_path_px .. "Finanzblick.png"
 
 i_jdown		= i_path_usr .. "Icons/jd_logo_128_128.png"
 i_gentoo	= i_path_usr .. "Icons/573px-gentoo_linux_logo_mattesvg.png"
@@ -33,9 +35,9 @@ i_myth 		= i_path_usr .. "Icons/mythtv.png"
 
 terminal_joe = 		"xterm -title 'xterm - joe@mae'         -e 'screen -D -RR'"
 terminal_root = 	"xterm -title 'xterm - root@mae'        -e 'suscreen'"
-terminal_miranda = 	"xterm -title 'xterm - root@miranda'    -e 'ssh -XY root@miranda'"
+terminal_xbmc = 	"xterm -title 'xterm - pi@raspbmc'      -e 'ssh -XY pi@raspbmc'"
 terminal_michelle = 	"xterm -title 'xterm - root@michelle'   -e 'ssh -XY root@michelle'"
-terminal_quota = 	"xterm -title 'xterm - quota@michelle'  -e 'ssh -XY quota@michelle'"
+terminal_quota = 	"xterm -title 'xterm - quota@mae'       -e 'ssh -t -XY quota@mae screen -D -RR'"
 chrome_bin =		"google-chrome"
 chrome_opts =		" "
 chrome =		chrome_bin .. chrome_opts
@@ -54,6 +56,7 @@ chrome_mythweb =	chrome .. " -app=https://mythtv/mythweb"
 chrome_ebuddy =		chrome .. " -app=http://web.ebuddy.com/"
 kmymoney =              "kmymoney /home/joe/_Dropbox/Dokumente/joe.kmy"
 chrome_ytl =		chrome .. " -app=http://www.youtube.com/leanback"
+firefox =               "firefox-bin"
 
 
 
@@ -83,6 +86,9 @@ myinternet = {
   { "Firefox",          "firefox",              i_firefox },
   { "Pidgin",           "pidgin",               i_pidgin },
   { "Webapps",          mywebapps,              i_chrome },
+  { "Skype",            "skype",                i_skype },
+  { "Teamviewer",       "teamviewer"            },
+  { "Spotify",          "spotify"               },
 }
 
 mymultimedia = {
@@ -90,14 +96,15 @@ mymultimedia = {
   { "Amarok",           "amarok",               i_amarok  },
   { "Editra",           "editra",               i_kate },
   { "Gimp",             "gimp",                 i_gimp },
-  { "Picasa",           "picasa",               i_picasa },
+  --{ "Picasa",           "picasa",               i_picasa },
 }
 
 myawesomemenu = {
   { "Terminal(joe)",    terminal_joe,           i_terminal },
   { "Terminal(root)",   terminal_root,          i_terminal },
   { "Terminal(michelle)",terminal_michelle,     i_terminal },
-  { "Terminal(miranda)",terminal_miranda,       i_terminal },
+  { "Terminal(XBMC)",   terminal_xbmc,          i_terminal },
+  { "VirtualBox(WinXP)","VirtualBox --startvm WinXP"        },
   { "edit config",      "editra",               i_kate },
   { "Restart",          awesome.restart,        beautiful.awesome_icon },
   { "Quit",             awesome.quit,           beautiful.awesome_icon },
@@ -105,10 +112,13 @@ myawesomemenu = {
 }
 
 myfavorites = {
+  { "Firefox",          firefox,              i_firefox },
   { "Chrome",           chrome,                 i_chrome },
   { "MythTV",           "mythfrontend",         i_myth },
   { "Amarok",           "amarok",               i_amarok },
   { "Konqueror",        "konqueror --profile filemanagement", i_konq },
+  { "Finanzblick",        firefox .. " https://finanzblick.de/webapp/", i_FI },
+  --{ "KmyMoney",         "kmymoney",             i_kmymoney },
 }
 
 mymainmenu = awful.menu({ items = { 
@@ -121,6 +131,7 @@ mymainmenu = awful.menu({ items = {
 })
 
 q_mainmenu = awful.menu({ items = {
+  { "Firefox(Quota)", 	"su quota -c firefox", i_firefox},
   { "Chrome(XXX)", 	chrome_xxx, i_chrome },
   { "Chrome(PD)", 	chrome_pd, i_chrome },
   { "Pidgin(Quota)",	"sudo -A -u quota pidgin", i_pidgin },

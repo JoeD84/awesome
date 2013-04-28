@@ -38,8 +38,9 @@ theme.icons.favorites = theme.icons.path .. "actions/bookmark-new.png"
 
 theme.path = "/home/joe/.config/awesome/themes/default/"
 --theme.wallpaper_cmd = { "awsetbg -r /home/joe/.wallpaper/bw/" }
+theme.wallpaper_cmd = { "awsetbg -r /home/joe/\!Multimedia/\!Customization/\!Wallpaper/\!Black\&White" }
 --theme.wallpaper_cmd = { "awsetbg /home/joe/_Multimedia/_Customization/_Wallpaper/Black_and_White/wallpaper-56701.jpg" }
-theme.wallpaper_cmd = { "awsetbg /home/joe/.wallpaper/2screen.png" }
+--theme.wallpaper_cmd = { "awsetbg /home/joe/.wallpaper/2screen.png" }
 theme.font          = "sans 8"
 theme.font          = "Sony Sketch EF 12"
 theme.bg_normal     = "#000000"
